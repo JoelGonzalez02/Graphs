@@ -13,12 +13,13 @@ from collections import deque
 
 
 def earliest_ancestor(ancestors, starting_node):
+
     q = deque([[starting_node]])
 
     while len(q) > 0:
         gen = q.popleft()
 
-        new_gen = []
+        new_gen = list()
 
         for node in gen:
             new_gen.extend([parent for parent, child in ancestors if child == node])
